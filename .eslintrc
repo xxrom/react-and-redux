@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "airbnb"
+  ],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jasmine": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "no-debugger": "off",
+    "no-console": "off",
+    "new-cap": "off",
+    "strict": "off",
+    "no-underscore-dangle": "off",
+    "no-use-before-define": "off",
+    "eol-last": "off",
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "never"],
+    "jsx-quotes": ["warn", "prefer-double"],
+    "react/jsx-no-undef": "warn",
+    "react/jsx-uses-react": "warn",
+    "react/jsx-boolean-value": "off",
+    "react/jsx-uses-vars": "warn",
+    "react/sort-comp": ["warn", {"order":["static-methods", "lifecycle", "render", "everything-else"]}],
+    "react/prefer-stateless-function": "off"
+  },
+  "ecmaFeatures": {
+    "modules": true,
+    "jsx": true,
+    "experimentalObjectRestSpread": true
+  }
+}
