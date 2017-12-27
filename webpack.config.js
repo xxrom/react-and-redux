@@ -24,10 +24,7 @@ module.exports = {
         test: /\.jsx?$/, // обработка jsx? файлов
         include: [path.resolve(__dirname, 'src')], // включаем файлы для обработки
         exclude: [path.resolve(__dirname, 'node_modules')], // исключаем файлы из обработки
-        loader: 'babel-loader',
-        options: {
-          presets: ['es2015', 'react']
-        }
+        loaders: 'babel-loader'
       }
     ]
   },
@@ -44,7 +41,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(['build']), // удаляет папку build
     new webpack.NamedModulesPlugin(), // make it easier to see which dependencies are being patched
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin() // HMR
   ],
   devServer: { // настройки для HMR
     contentBase: './build', // откуда брать данные для HMR
@@ -52,11 +49,17 @@ module.exports = {
 
     noInfo: true, // убираю все консоль логи, кроме timings
 
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
+    }
+
     // inline: false,
     // colors: true,
     // progress: true, // отображает прогресс сборки бандла
   },
   resolve: {
     extensions: ['.jsx', '.js', '.json'], // автоматом подставляет данные расширения
-  }
+  },
+  devtool: 'cheap-module-eval-source-map', // сжатие?
 };
