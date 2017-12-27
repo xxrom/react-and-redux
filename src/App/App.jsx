@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 
+import Box from '../Box';
+
 export default class App extends Component {
   render() {
-    console.log('APP component 2 ');
-    return <h1>Hello App HELLO NIKITA!!!</h1>;
+    return (
+      <div>
+        <h1>Hello App HELLO NIKITA уууууууу</h1>
+        <Box />
+      </div>
+    );
   }
 }
