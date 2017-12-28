@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { actions } from '../reducers';
+import { actions } from '../reducers/Box';
 
 class Box extends Component {
+  state = {
+    counter: 0, // wark
+  };
+
   render() {
     console.log('render Box ' + this.props.box);
+    console.dir(this.props);
     return (
       <div>
         <h1>Box text = {this.props.box}</h1>
@@ -16,21 +21,23 @@ class Box extends Component {
 
   onClick() {
     console.log('onClick');
-    console.dir(actions);
-    this.props.onClick && this.props.onClick('hello');
+    console.log('this.state', this);
+    this.props.changeBox && this.props.changeBox('hello' + this.state.counter);
+    this.state.counter++;
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ Box }) => {
+  console.log('state.Box', Box);
   return {
-    box: state.box
+    box: Box.box,
   };
 };
-let count = 0;
-const mapDispatchToProps = dispatch => {
+
+const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: () => {
-      dispatch(actions.changeBox('hello' + count++));
+    changeBox: (text) => {
+      dispatch(actions.changeBox(text));
     }
   };
 };

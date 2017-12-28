@@ -4,12 +4,12 @@ import { Provider } from 'react-redux'; // получаем данные из st
 import { createStore } from 'redux';
 import { AppContainer } from 'react-hot-loader';
 
-import mainReducer from './reducers';
+import reducerStore from './reducers';
 
 import reducers from '.';
 import App from './App';
 
-const store = createStore(mainReducer);
+const store = createStore(reducerStore);
 
 const render = Component => {
   ReactDOM.render(

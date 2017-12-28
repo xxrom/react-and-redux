@@ -23,7 +23,7 @@
     "eol-last": "off",
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "comma-dangle": ["error", "never"],
+    "comma-dangle": ["error", "only-multiline"],
     "jsx-quotes": ["warn", "prefer-double"],
     "react/jsx-no-undef": "warn",
     "react/jsx-uses-react": "warn",
