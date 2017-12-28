@@ -22,12 +22,28 @@ export default function boxReducer(state = initialState, action) {
 
 export const actions = {
   changeBox: function(text) {
+    console.log('actions changeBox');
     if (typeof text === 'string') {
-      return dispatch =>
-        dispatch({
-          type: constants.CHANGE_TYPE,
-          payload: text
-        });
+      console.log('>> dispatch');
+      return {
+        type: constants.CHANGE_TYPE,
+        payload: text
+      };
+      // return dispatch =>
+      //   dispatch({
+      //     type: constants.CHANGE_TYPE,
+      //     payload: text
+      //   });
+    }
+  },
+  changeBoxDispatch: function(text) {
+    console.log('actions changeBoxDispatch');
+    if (typeof text === 'string') {
+      console.log('>> dispatch');
+      return {
+        type: constants.CHANGE_TYPE,
+        payload: text
+      };
     }
   }
 };

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import actions from '../reducers';
+import { actions } from '../reducers';
 
-export default class Box extends Component {
+class Box extends Component {
   render() {
+    console.log('render Box ' + this.props.box);
     return (
       <div>
-        <h1>Box Component 2 33 33</h1>
+        <h1>Box text = {this.props.box}</h1>
         <button onClick={::this.onClick}>Hello</button>
       </div>
     );
@@ -14,6 +16,23 @@ export default class Box extends Component {
 
   onClick() {
     console.log('onClick');
-    actions.changeBox('hello');
+    console.dir(actions);
+    this.props.onClick && this.props.onClick('hello');
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    box: state.box
+  };
+};
+let count = 0;
+const mapDispatchToProps = dispatch => {
+  return {
+    onClick: () => {
+      dispatch(actions.changeBox('hello' + count++));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Box);
